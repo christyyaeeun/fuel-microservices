@@ -14,14 +14,14 @@
  */
 exports.Md5FromAA = async (req, res) => {
     try {
-        console.info("Md5IdentitiesFromAA: Request received.");
+        console.info("Md5FromAA: Request received.");
 
         // Extract MD5 hashed email from query parameters
         const md5HashedEmail = req.query.md5;
 
         // Validate MD5 hashed email exists
         if (!md5HashedEmail) {
-            console.error("Md5IdentitiesFromAA: MD5 hashed email not provided in the query parameters.");
+            console.error("Md5FromAA: MD5 hashed email not provided in the query parameters.");
             return res.status(400).json({ error: 'MD5 hashed email not provided in the query parameters.' });
         }
 
@@ -216,7 +216,7 @@ exports.batchResponseData = async (req, res) => {
         // Define log query parameters
         const logQuery = `
             (resource.type="cloud_function"
-            AND resource.labels.function_name="Md5IdentitiesFromAA"
+            AND resource.labels.function_name="Md5FromAA"
             AND resource.labels.region="us-central1"
             AND httpRequest.requestMethod="GET"
             AND httpRequest.status=200)
